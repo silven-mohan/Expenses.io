@@ -1,0 +1,6 @@
+This file was created to trigger a deployment check on Vercel.
+
+Commit message used: test: trigger Vercel deployment - 6b3f2a
+Timestamp: 2026-06-19T00:00:00Z
+
+If Vercel is configured to auto-deploy from the default branch, this commit should start a new deployment.
