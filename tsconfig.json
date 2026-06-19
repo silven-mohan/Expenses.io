@@ -34,7 +34,8 @@
       "@services/*": ["./src/services/*"],
       "@utils/*": ["./src/utils/*"],
       "@types/*": ["./src/types/*"],
-      "@styles/*": ["./src/styles/*"]
+      "@styles/*": ["./src/styles/*"],
+      "@providers/*": ["./src/providers/*"]
     },
     "incremental": true,
     "plugins": [
