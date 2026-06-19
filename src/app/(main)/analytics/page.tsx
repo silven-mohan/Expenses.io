@@ -5,7 +5,7 @@ import { useExpenses } from '@hooks/useExpenses';
 import { useAppStore } from '@stores/appStore';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@components/ui';
 import { BarChart, Bar, LineChart, Line, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
-import { formatCurrency, formatDate, getDateRange, getCurrentMonth } from '@utils/dateUtils';
+import { formatCurrency, formatDate, getCurrentMonth } from '@utils/dateUtils';
 import { groupBy, sumBy } from '@utils/helpers';
 import { CHART_COLORS } from '@utils/constants';
 
