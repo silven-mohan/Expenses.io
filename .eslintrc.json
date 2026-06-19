@@ -1,13 +1,18 @@
 {
   "extends": [
     "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
     "prettier"
   ],
+  "parser": "@typescript-eslint/parser",
   "plugins": [
-    "prettier"
+    "prettier",
+    "@typescript-eslint",
+    "react-hooks"
   ],
   "rules": {
-    "prettier/prettier": "error",
+    "prettier/prettier": "warn",
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "no-console": [
