@@ -66,7 +66,6 @@ export default function DebtPage() {
   const handleSettle = activeTab === 'lent' ? settleLent : settleBorrowed;
 
   const totalAmount = sumBy(records, (r) => r.amount);
-  const totalPaid = sumBy(records, (r) => r.paidAmount);
   const totalRemaining = sumBy(records, (r) => r.remainingAmount);
   const settled = records.filter((r) => r.status === 'settled').length;
 
