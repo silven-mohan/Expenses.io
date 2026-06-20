@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useAppStore } from '@stores/appStore';
 import { useExpenses } from '@hooks/useExpenses';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, Button } from '@components/ui';
-import { generateMonthlyReport, getAnalyticsSummary } from '@services/reportService';
+import { generateMonthlyReport } from '@services/reportService';
 import { generateReportCSV, downloadCSV, downloadPDF } from '@services/csvService';
 import { generateMonthlyReportPDF } from '@services/pdfService';
 import { Download, FileJson } from 'lucide-react';
