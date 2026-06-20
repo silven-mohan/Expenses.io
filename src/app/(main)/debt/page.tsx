@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useLent } from '@hooks/useLent';
 import { useBorrowed } from '@hooks/useBorrowed';
 import { useAppStore } from '@stores/appStore';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, Button, Input } from '@components/ui';
+import { Card, CardContent, CardHeader, CardTitle, Button, Input } from '@components/ui';
 import { Plus, Trash2, Check } from 'lucide-react';
 import { formatCurrency, formatDate } from '@utils/dateUtils';
 import { sumBy } from '@utils/helpers';
