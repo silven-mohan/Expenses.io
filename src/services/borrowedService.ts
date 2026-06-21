@@ -1,5 +1,5 @@
 import { db } from '@db/index';
-import type { BorrowedRecord } from '@types/index';
+import type { BorrowedRecord } from '@/types';
 import { generateId } from '@utils/helpers';
 
 export async function getAllBorrowed(): Promise<BorrowedRecord[]> {

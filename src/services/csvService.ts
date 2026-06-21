@@ -1,5 +1,5 @@
 import Papa from 'papaparse';
-import type { Expense, LentRecord, BorrowedRecord, MonthlyReport } from '@types/index';
+import type { Expense, LentRecord, BorrowedRecord, MonthlyReport } from '@/types';
 import { formatCurrency, formatDate } from '@utils/dateUtils';
 
 export function generateExpensesCSV(

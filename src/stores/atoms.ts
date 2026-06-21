@@ -5,7 +5,7 @@ import type {
   LentRecord,
   BorrowedRecord,
   Settings,
-} from '@types/index';
+} from '@/types';
 
 export const categoriesAtom = atom<Category[]>([]);
 export const expensesAtom = atom<Expense[]>([]);

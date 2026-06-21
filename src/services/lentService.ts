@@ -1,5 +1,5 @@
 import { db } from '@db/index';
-import type { LentRecord } from '@types/index';
+import type { LentRecord } from '@/types';
 import { generateId } from '@utils/helpers';
 
 export async function getAllLent(): Promise<LentRecord[]> {

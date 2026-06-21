@@ -1,5 +1,5 @@
 import { db } from '@db/index';
-import type { Expense } from '@types/index';
+import type { Expense } from '@/types';
 import { generateId } from '@utils/helpers';
 
 export async function getAllExpenses(): Promise<Expense[]> {

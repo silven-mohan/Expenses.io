@@ -5,7 +5,7 @@ import type {
   LentRecord,
   BorrowedRecord,
   Settings,
-} from '@types/index';
+} from '@/types';
 
 interface AppState {
   categories: Category[];

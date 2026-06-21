@@ -1,5 +1,5 @@
 import { db } from '@db/index';
-import type { BackupData } from '@types/index';
+import type { BackupData } from '@/types';
 
 const BACKUP_VERSION = '1.0.0';
 

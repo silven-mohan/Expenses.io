@@ -1,5 +1,5 @@
 import { db } from '@db/index';
-import type { Settings } from '@types/index';
+import type { Settings } from '@/types';
 
 export async function getSettings(): Promise<Settings | null> {
   try {

@@ -1,5 +1,5 @@
 import { db } from '@db/index';
-import type { Category } from '@types/index';
+import type { Category } from '@/types';
 import { generateId } from '@utils/helpers';
 
 export async function getAllCategories(): Promise<Category[]> {
