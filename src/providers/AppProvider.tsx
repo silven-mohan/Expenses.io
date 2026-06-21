@@ -10,7 +10,8 @@ interface AppProviderProps {
 }
 
 export function AppProvider({ children }: AppProviderProps) {
-  const { isLoading } = useInitializeApp();
+  // initialize app (we don't need to use the loading state here)
+  useInitializeApp();
 
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

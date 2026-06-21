@@ -9,6 +9,7 @@ import {
   settleBorrowed as settleBorrowedService,
   deleteBorrowed as deleteBorrowedService,
 } from '@services/borrowedService';
+import type { BorrowedRecord } from '@types';
 
 export function useBorrowed() {
   const { borrowed, setBorrowed } = useAppStore();
@@ -37,7 +38,7 @@ export function useBorrowed() {
   );
 
   const updateBorrowed = useCallback(
-    async (id: string, updates: any) => {
+    async (id: string, updates: Partial<BorrowedRecord>) => {
       try {
         await updateBorrowedService(id, updates);
         await refreshBorrowed();

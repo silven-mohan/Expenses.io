@@ -9,6 +9,7 @@ import {
   settleLent as settleLentService,
   deleteLent as deleteLentService,
 } from '@services/lentService';
+import type { LentRecord } from '@types';
 
 export function useLent() {
   const { lent, setLent } = useAppStore();
@@ -37,7 +38,7 @@ export function useLent() {
   );
 
   const updateLent = useCallback(
-    async (id: string, updates: any) => {
+    async (id: string, updates: Partial<LentRecord>) => {
       try {
         await updateLentService(id, updates);
         await refreshLent();

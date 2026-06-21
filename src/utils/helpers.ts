@@ -1,5 +1,5 @@
 export function generateId(): string {
-  return `${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+  return `${Date.now()}_${Math.random().toString(36).substring(2, 11)}`;
 }
 
 export function groupBy<T, K extends string | number | symbol>(
@@ -23,7 +23,7 @@ export function sumBy<T>(array: T[], selector: (item: T) => number): number {
   return array.reduce((sum, item) => sum + selector(item), 0);
 }
 
-export function sortBy<T>(array: T[], selector: (item: T) => any, ascending: boolean = true): T[] {
+export function sortBy<T>(array: T[], selector: (item: T) => unknown, ascending: boolean = true): T[] {
   return [...array].sort((a, b) => {
     const aVal = selector(a);
     const bVal = selector(b);

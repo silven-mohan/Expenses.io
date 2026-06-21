@@ -9,6 +9,7 @@ import {
   updateExpense as updateExpenseService,
   deleteExpense as deleteExpenseService,
 } from '@services/expenseService';
+import type { Expense } from '@types';
 
 export function useExpenses() {
   const { expenses, setExpenses } = useAppStore();
@@ -37,7 +38,7 @@ export function useExpenses() {
   );
 
   const updateExpense = useCallback(
-    async (id: string, updates: any) => {
+    async (id: string, updates: Partial<Expense>) => {
       try {
         await updateExpenseService(id, updates);
         await refreshExpenses();
