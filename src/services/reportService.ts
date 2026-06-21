@@ -7,7 +7,7 @@ import type {
   Settlement,
   Settings,
   MonthlyReport,
-} from '@types/index';
+} from '@/types';
 import { getMonthRange, isDateInRange } from '@utils/dateUtils';
 import { groupBy, sumBy, sortBy } from '@utils/helpers';
 
@@ -87,28 +87,3 @@ export async function getAnalyticsSummary() {
     const categoryTotals = groupBy(expenses, (e) => e.categoryId);
     const topCategories = Object.entries(categoryTotals)
       .map(([categoryId, items]) => {
-        const category = categories.find((c) => c.id === categoryId);
-        return {
-          categoryId,
-          categoryName: category?.name || 'Unknown',
-          amount: sumBy(items, (e) => e.amount),
-          count: items.length,
-        };
-      })
-      .sort((a, b) => b.amount - a.amount)
-      .slice(0, 5);
-
-    return {
-      totalExpenses,
-      totalLent,
-      totalBorrowed,
-      pendingLent,
-      pendingBorrowed,
-      totalTransactions: expenses.length + lent.length + borrowed.length,
-      topCategories,
-    };
-  } catch (error) {
-    console.error('Failed to get analytics summary:', error);
-    throw error;
-  }
-}

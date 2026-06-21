@@ -9,7 +9,7 @@ import { generateReportCSV, downloadCSV, downloadPDF } from '@services/csvServic
 import { generateMonthlyReportPDF } from '@services/pdfService';
 import { Download, FileJson } from 'lucide-react';
 import { formatCurrency } from '@utils/dateUtils';
-import type { MonthlyReport } from '@types/index';
+import type { MonthlyReport } from '@/types';
 
 export default function ReportsPage() {
   const { settings } = useAppStore();

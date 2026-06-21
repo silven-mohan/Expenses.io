@@ -6,7 +6,7 @@ import type {
   BorrowedRecord,
   Settlement,
   Settings,
-} from '@types/index';
+} from '@/types';
 
 export class ExpenseLedgerDB extends Dexie {
   categories!: Table<Category>;
