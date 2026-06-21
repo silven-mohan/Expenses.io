@@ -75,6 +75,7 @@ export async function getAnalyticsSummary() {
     const totalExpenses = sumBy(expenses, (e) => e.amount);
     const totalLent = sumBy(lent, (l) => l.amount);
     const totalBorrowed = sumBy(borrowed, (b) => b.amount);
+
     const pendingLent = sumBy(
       lent.filter((l) => l.status !== 'settled'),
       (l) => l.remainingAmount
@@ -87,3 +88,27 @@ export async function getAnalyticsSummary() {
     const categoryTotals = groupBy(expenses, (e) => e.categoryId);
     const topCategories = Object.entries(categoryTotals)
       .map(([categoryId, items]) => {
+        const amount = sumBy(items, (i) => i.amount);
+        const category = categories.find((c) => c.id === categoryId);
+        return {
+          categoryId,
+          categoryName: category?.name || 'Unknown',
+          amount,
+        };
+      })
+      .sort((a, b) => b.amount - a.amount)
+      .slice(0, 5);
+
+    return {
+      totalExpenses,
+      totalLent,
+      totalBorrowed,
+      pendingLent,
+      pendingBorrowed,
+      topCategories,
+    };
+  } catch (error) {
+    console.error('Failed to compute analytics summary:', error);
+    throw error;
+  }
+}
