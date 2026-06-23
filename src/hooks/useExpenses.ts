@@ -9,7 +9,7 @@ import {
   updateExpense as updateExpenseService,
   deleteExpense as deleteExpenseService,
 } from '@services/expenseService';
-import type { Expense } from '@types';
+import type { Expense } from '@/types';
 
 export function useExpenses() {
   const { expenses, setExpenses } = useAppStore();

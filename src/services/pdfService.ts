@@ -1,5 +1,5 @@
 import { PDFDocument, rgb, PDFPage } from 'pdf-lib';
-import type { MonthlyReport, Expense, LentRecord, BorrowedRecord } from '@/types';
+import type { MonthlyReport, Expense } from '@/types';
 import { formatCurrency, formatDate } from '@utils/dateUtils';
 
 function drawText(
@@ -27,7 +27,7 @@ function drawLine(page: PDFPage, x1: number, y1: number, x2: number, y2: number)
   });
 }
 
-export async function generateMonthlyReportPDF(report: MonthlyReport, currency: string = 'INR'): Promise<ArrayBuffer> {
+export async function generateMonthlyReportPDF(report: MonthlyReport, currency: string = 'INR'): Promise<Uint8Array> {
   const pdfDoc = await PDFDocument.create();
   const page = pdfDoc.addPage([595, 842]); // A4 size
   const { height } = page.getSize();
@@ -43,7 +43,7 @@ export async function generateMonthlyReportPDF(report: MonthlyReport, currency: 
     margin,
     y,
     20,
-    rgb(79, 70, 229)
+    rgb(79 / 255, 70 / 255, 229 / 255)
   );
   y -= 30;
 
@@ -77,9 +77,9 @@ export async function generateMonthlyReportPDF(report: MonthlyReport, currency: 
     y -= 15;
 
     // Headers
-    drawText(page, 'Category', margin + 10, y, 11, rgb(100, 100, 100));
-    drawText(page, 'Amount', margin + 250, y, 11, rgb(100, 100, 100));
-    drawText(page, 'Percentage', margin + 350, y, 11, rgb(100, 100, 100));
+    drawText(page, 'Category', margin + 10, y, 11, rgb(100 / 255, 100 / 255, 100 / 255));
+    drawText(page, 'Amount', margin + 250, y, 11, rgb(100 / 255, 100 / 255, 100 / 255));
+    drawText(page, 'Percentage', margin + 350, y, 11, rgb(100 / 255, 100 / 255, 100 / 255));
     y -= 15;
 
     // Data
@@ -100,7 +100,7 @@ export async function generateMonthlyReportPDF(report: MonthlyReport, currency: 
   y -= 15;
 
   // Footer
-  drawText(page, `Generated on ${formatDate(report.generatedAt, 'MMM dd, yyyy HH:mm')}`, margin, 30, 9, rgb(150, 150, 150));
+  drawText(page, `Generated on ${formatDate(report.generatedAt, 'MMM dd, yyyy HH:mm')}`, margin, 30, 9, rgb(150 / 255, 150 / 255, 150 / 255));
 
   const pdfBytes = await pdfDoc.save();
   return pdfBytes;
@@ -110,7 +110,7 @@ export async function generateExpensesDetailedPDF(
   expenses: Expense[],
   categoryMap: Record<string, string>,
   currency: string = 'INR'
-): Promise<ArrayBuffer> {
+): Promise<Uint8Array> {
   const pdfDoc = await PDFDocument.create();
   const page = pdfDoc.addPage([595, 842]);
   const { height } = page.getSize();
@@ -120,14 +120,14 @@ export async function generateExpensesDetailedPDF(
   const pageWidth = 595 - 2 * margin;
 
   // Title
-  drawText(page, 'Expenses Report', margin, y, 20, rgb(79, 70, 229));
+  drawText(page, 'Expenses Report', margin, y, 20, rgb(79 / 255, 70 / 255, 229 / 255));
   y -= 30;
 
   // Table Headers
-  drawText(page, 'Date', margin + 10, y, 11, rgb(100, 100, 100));
-  drawText(page, 'Category', margin + 80, y, 11, rgb(100, 100, 100));
-  drawText(page, 'Amount', margin + 250, y, 11, rgb(100, 100, 100));
-  drawText(page, 'Note', margin + 350, y, 11, rgb(100, 100, 100));
+  drawText(page, 'Date', margin + 10, y, 11, rgb(100 / 255, 100 / 255, 100 / 255));
+  drawText(page, 'Category', margin + 80, y, 11, rgb(100 / 255, 100 / 255, 100 / 255));
+  drawText(page, 'Amount', margin + 250, y, 11, rgb(100 / 255, 100 / 255, 100 / 255));
+  drawText(page, 'Note', margin + 350, y, 11, rgb(100 / 255, 100 / 255, 100 / 255));
   y -= 15;
 
   drawLine(page, margin, y, margin + pageWidth, y);
@@ -148,7 +148,7 @@ export async function generateExpensesDetailedPDF(
 
     // Page break
     if (y < 50) {
-      const newPage = pdfDoc.addPage([595, 842]);
+      pdfDoc.addPage([595, 842]);
       y = 842 - 50;
     }
   });

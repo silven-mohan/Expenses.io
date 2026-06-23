@@ -9,7 +9,7 @@ import {
   settleLent as settleLentService,
   deleteLent as deleteLentService,
 } from '@services/lentService';
-import type { LentRecord } from '@types';
+import type { LentRecord } from '@/types';
 
 export function useLent() {
   const { lent, setLent } = useAppStore();

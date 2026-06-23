@@ -3,15 +3,15 @@
 import React, { useState, useEffect } from 'react';
 import { useAppStore } from '@stores/appStore';
 import { updateSettings, createBackup, restoreBackup, downloadBackup } from '@services/index';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, Button, Select, Input } from '@components/ui';
-import { Download, Upload, RotateCcw, Moon, Sun } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle, Button, Select } from '@components/ui';
+import { Download, Upload, RotateCcw } from 'lucide-react';
 import { useTheme } from 'next-themes';
 import { toast } from 'sonner';
 import { CURRENCY_SYMBOLS } from '@utils/constants';
 
 export default function SettingsPage() {
   const { settings, setSettings } = useAppStore();
-  const { theme, setTheme } = useTheme();
+  const { setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [formData, setFormData] = useState({
     currency: 'INR',

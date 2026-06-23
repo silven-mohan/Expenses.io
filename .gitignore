@@ -5,5 +5,9 @@
 *.pem
 dist/
 build/
+.next/
 .vercel/
 .vercelignore
+node_modules
+tsconfig.tsbuildinfo
+next-env.d.ts

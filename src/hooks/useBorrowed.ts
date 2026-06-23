@@ -9,7 +9,7 @@ import {
   settleBorrowed as settleBorrowedService,
   deleteBorrowed as deleteBorrowedService,
 } from '@services/borrowedService';
-import type { BorrowedRecord } from '@types';
+import type { BorrowedRecord } from '@/types';
 
 export function useBorrowed() {
   const { borrowed, setBorrowed } = useAppStore();

@@ -23,7 +23,7 @@ export function sumBy<T>(array: T[], selector: (item: T) => number): number {
   return array.reduce((sum, item) => sum + selector(item), 0);
 }
 
-export function sortBy<T>(array: T[], selector: (item: T) => unknown, ascending: boolean = true): T[] {
+export function sortBy<T>(array: T[], selector: (item: T) => number | string | Date, ascending: boolean = true): T[] {
   return [...array].sort((a, b) => {
     const aVal = selector(a);
     const bVal = selector(b);

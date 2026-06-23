@@ -11,7 +11,7 @@ export async function createBackup(): Promise<BackupData> {
       db.lent.toArray(),
       db.borrowed.toArray(),
       db.settlements.toArray(),
-      db.settings.get('settings'),
+      db.settings.get('settings').then(s => s ?? null),
     ]);
 
     return {

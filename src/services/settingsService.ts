@@ -3,7 +3,7 @@ import type { Settings } from '@/types';
 
 export async function getSettings(): Promise<Settings | null> {
   try {
-    return await db.settings.get('settings');
+    return (await db.settings.get('settings')) ?? null;
   } catch (error) {
     console.error('Failed to fetch settings:', error);
     throw error;

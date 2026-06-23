@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { useAppStore } from '@stores/appStore';
-import { useExpenses } from '@hooks/useExpenses';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle, Button } from '@components/ui';
 import { generateMonthlyReport } from '@services/reportService';
 import { generateReportCSV, downloadCSV, downloadPDF } from '@services/csvService';
@@ -13,10 +12,9 @@ import type { MonthlyReport } from '@/types';
 
 export default function ReportsPage() {
   const { settings } = useAppStore();
-  const { expenses } = useExpenses();
   const [mounted, setMounted] = useState(false);
   const [report, setReport] = useState<MonthlyReport | null>(null);
-  const [loading, setLoading] = useState(false);
+  const [_loading, setLoading] = useState(false);
   const [currentDate, setCurrentDate] = useState(() => {
     const now = new Date();
     return { month: now.getMonth() + 1, year: now.getFullYear() };

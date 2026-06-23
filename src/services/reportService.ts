@@ -1,13 +1,5 @@
 import { db } from '@db/index';
-import type {
-  Category,
-  Expense,
-  LentRecord,
-  BorrowedRecord,
-  Settlement,
-  Settings,
-  MonthlyReport,
-} from '@/types';
+import type { MonthlyReport } from '@/types';
 import { getMonthRange, isDateInRange } from '@utils/dateUtils';
 import { groupBy, sumBy, sortBy } from '@utils/helpers';
 

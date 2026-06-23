@@ -5,8 +5,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@lib/utils';
 import { Home, DollarSign, TrendingUp, Users, BarChart3, Settings } from 'lucide-react';
-import { Button } from '@components/ui';
-import { useState } from 'react';
 
 const navItems = [
   { href: '/dashboard', label: 'Dashboard', icon: Home },
@@ -19,7 +17,6 @@ const navItems = [
 
 export function MobileNav() {
   const pathname = usePathname();
-  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>

@@ -1,11 +1,11 @@
 import Papa from 'papaparse';
 import type { Expense, LentRecord, BorrowedRecord, MonthlyReport } from '@/types';
-import { formatCurrency, formatDate } from '@utils/dateUtils';
+import { formatDate } from '@utils/dateUtils';
 
 export function generateExpensesCSV(
   expenses: Expense[],
   categoryMap: Record<string, string>,
-  currency: string = 'INR'
+  _currency: string = 'INR'
 ): string {
   const headers = ['Date', 'Category', 'Amount', 'Note'];
   const rows = expenses.map((expense) => [
@@ -23,7 +23,7 @@ export function generateExpensesCSV(
 
 export function generateLentCSV(
   lent: LentRecord[],
-  currency: string = 'INR'
+  _currency: string = 'INR'
 ): string {
   const headers = ['Person', 'Amount', 'Paid', 'Remaining', 'Status', 'Date', 'Note'];
   const rows = lent.map((record) => [
@@ -44,7 +44,7 @@ export function generateLentCSV(
 
 export function generateBorrowedCSV(
   borrowed: BorrowedRecord[],
-  currency: string = 'INR'
+  _currency: string = 'INR'
 ): string {
   const headers = ['Person', 'Amount', 'Paid', 'Remaining', 'Status', 'Date', 'Note'];
   const rows = borrowed.map((record) => [
@@ -63,7 +63,7 @@ export function generateBorrowedCSV(
   });
 }
 
-export function generateReportCSV(report: MonthlyReport, currency: string = 'INR'): string {
+export function generateReportCSV(report: MonthlyReport, _currency: string = 'INR'): string {
   const headers = ['Category', 'Amount', 'Percentage'];
   const rows = report.expenses.map((exp) => [
     exp.categoryName,
@@ -96,8 +96,8 @@ export function downloadCSV(csv: string, filename: string): void {
   document.body.removeChild(link);
 }
 
-export function downloadPDF(pdf: ArrayBuffer, filename: string): void {
-  const blob = new Blob([pdf], { type: 'application/pdf' });
+export function downloadPDF(pdf: Uint8Array, filename: string): void {
+  const blob = new Blob([pdf.buffer as ArrayBuffer], { type: 'application/pdf' });
   const link = document.createElement('a');
   const url = URL.createObjectURL(blob);
   link.setAttribute('href', url);

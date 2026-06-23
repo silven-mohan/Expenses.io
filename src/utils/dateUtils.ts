@@ -1,4 +1,4 @@
-import { format, parse, startOfMonth, endOfMonth, isWithinInterval } from 'date-fns';
+import { format, startOfMonth, endOfMonth, isWithinInterval } from 'date-fns';
 
 export function formatCurrency(
   amount: number,
