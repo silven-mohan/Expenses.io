@@ -54,6 +54,6 @@
     "@types/react-dom": "^19.0.0",
     "@types/node": "^20.10.0",
     "@types/papaparse": "^5.3.11",
-    "eslint-plugin-react-hooks": "^4.9.0"
+    "eslint-plugin-react-hooks": "^4.8.0"
   }
 }
